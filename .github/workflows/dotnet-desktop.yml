@@ -80,6 +80,13 @@ jobs:
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test
+      
+    # Save State  
+    - name: Save state
+      run: echo "{name}={value}" >> $GITHUB_STATE
+
+    - name: Set output
+      run: echo "{name}={value}" >> $GITHUB_OUTPUT
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
